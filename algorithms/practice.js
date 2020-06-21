@@ -972,3 +972,50 @@ function binarySearch(array, target) {
 // console.log(superReducedString(string));
 
 // ===================SuperReducerString==================================
+
+// ===================DepthFirstSearch====================================
+
+//Time complexity is O(V+E) becuase we are having to traverse every vertex and edge
+//Space complexity worst case is O(V). We can imagine that it is a graph with only
+// large branch and V number of calls are getting added to the stack. Aside from that,
+// our new array is going to b V number of indicies.
+
+// class Node {
+//   constructor(name) {
+//     this.name = name;
+//     this.children = [];
+//   }
+
+//   addChild(name) {
+//     this.children.push(new Node(name));
+//     return this;
+//   }
+
+//   depthFirstSearch(array) {
+//     array.push(this.name);
+//     for (const child of this.children) {
+//       console.log(child);
+
+//       child.depthFirstSearch(array);
+//     }
+
+//     return array;
+//   }
+// }
+
+// let parentNode = new Node("a");
+// parentNode
+//   .addChild("b")
+//   .addChild("c")
+//   .addChild("d");
+// parentNode.children[0].addChild("e");
+// parentNode.children[0].addChild("f");
+// parentNode.children[2].addChild("g");
+// parentNode.children[2].addChild("h");
+// parentNode.children[0].children[1].addChild("i");
+// parentNode.children[0].children[1].addChild("j");
+// parentNode.children[2].children[0].addChild("k");
+
+// console.log(parentNode.depthFirstSearch([]));
+
+// ===================DepthFirstSearch====================================
