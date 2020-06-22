@@ -1281,3 +1281,138 @@ function binarySearch(array, target) {
 // console.log(threeNumberSum(array, 0));
 
 // ===algoExpertMedium====threeNumberSum==============================
+
+// ===LeetCodeEasy====minAbsoluteDifference=================================
+
+// arr = [3, 8, -10, 23, 19, -4, -14, 27];
+
+// var minimumAbsDifference = function(arr) {
+//   let min = Number.MAX_VALUE;
+//   let answerArray = [];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (Math.abs(arr[j] - arr[i]) === min) {
+//         answerArray.push([arr[i], arr[j]]);
+//       }
+//       if (Math.abs(arr[j] - arr[i]) < min) {
+//         min = Math.abs(arr[j] - arr[i]);
+//         console.log(`new new min`);
+//         answerArray = [[arr[i], arr[j]]];
+//       }
+//     }
+//   }
+//   for (i = 0; i < answerArray.length; i++) {
+//     if (answerArray[i][0] > answerArray[i][1]) {
+//       [answerArray[i][0], answerArray[i][1]] = [
+//         answerArray[i][1],
+//         answerArray[i][0]
+//       ];
+//     }
+//   }
+//   for (i = 0; i < answerArray.length - 1; i++) {
+//     if (answerArray[i][0] > answerArray[i + 1][0]) {
+//       [answerArray[i], answerArray[i + 1]] = [
+//         answerArray[i + 1],
+//         answerArray[i]
+//       ];
+//     }
+//   }
+//   return answerArray;
+// };
+
+// console.log(minimumAbsDifference(arr));
+
+// ===LeetCodeEasy====minAbsoluteDifference=================================
+
+// ===LeetCodeEasy====reverseString====================================
+
+// let array = ["h", "e", "l", "l", "o"];
+
+// var reverseString = function(s) {
+//   let left = 0;
+//   let right = s.length - 1;
+//   while (left < right) {
+//     [s[left], s[right]] = [s[right], s[left]];
+//     left++;
+//     right--;
+//   }
+//   return s;
+// };
+
+// console.log(reverseString(array));
+
+// ===LeetCodeEasy====reverseString====================================
+
+// ===LeetCodeEasy====smallerNumsThanCurrent====================================
+
+// nums = [7, 7, 7, 7];
+
+// var smallerNumbersThanCurrent = function (nums) {
+//   let answerArray = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     let largerThanCount = 0;
+//     for (let j = 0; j < nums.length; j++) {
+//       if (j !== i) {
+//         if (nums[i] > nums[j]) {
+//           largerThanCount++;
+//         }
+//       }
+//     }
+//     answerArray.push(largerThanCount);
+//   }
+
+//   return answerArray;
+// };
+
+// console.log(smallerNumbersThanCurrent(nums));
+
+// var smallerNumbersThanCurrent2 = function (nums) {
+//   var sorted = [...nums].sort((a, b) => a - b);
+//   console.log(sorted);
+
+//   for (var i = 0; i < nums.length; i++) {
+//     nums[i] = sorted.indexOf(nums[i]);
+//   }
+
+//   return nums;
+// };
+
+// console.log(smallerNumbersThanCurrent2(nums));
+
+// ===LeetCodeEasy====smallerNumsThanCurrent====================================
+
+// const list1 = [1, 4, 7, 8, 1, 4, 5, 2, 12, 13, 2, 1];
+// const list2 = [2, 1, 4, 7, 8, 1, 4, 2, 12, 13, 2, 1];
+// const subsequence = [1, 4, 2];
+
+// const smallestSub = (list, array) => {
+//   let temp = [];
+//   let initiated = false;
+//   let nextNumInSequence;
+//   for (let i = 0; i < list.length; i++) {
+//     if (list[i] === array[0]) {
+//       temp = [i];
+//       nextNumInSequence = i + 1;
+//       initiated = true;
+//     }
+
+//     if (initiated) {
+//       if (list[i] === array[nextNumInSequence]) {
+//         temp.push(nextNumInSequence);
+//       }
+
+//       if (temp.length === array.length - 2) {
+//         if (list[i] === array[array.length - 1]) {
+//           temp.push(i);
+//           return [temp[1] - temp[0] + 1, temp];
+//         }
+//       }
+//     }
+//   }
+// };
+
+// console.log(smallestSub(list1, subsequence));
+// console.log(smallestSub(list2, subsequence));
+
+// ===LeetCodeEasy====MaxProfit====================================
