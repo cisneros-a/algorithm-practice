@@ -1019,3 +1019,206 @@ function binarySearch(array, target) {
 // console.log(parentNode.depthFirstSearch([]));
 
 // ===================DepthFirstSearch====================================
+// ===LeetCodeEasy====RemoveElement=======================================
+
+// let nums = [0, 1, 2, 2, 3, 0, 4, 2];
+
+// var removeElement = function(nums, val) {
+//   let lastValue = nums.length - 1;
+//   for (let i = 0; i < lastValue; i++) {
+//     if (nums[i] === val) {
+//       [nums[i], nums[lastValue]] = [nums[lastValue], nums[i]];
+//       lastValue--;
+//       i--;
+//     }
+//   }
+//   return nums;
+// };
+
+// var removeElement2 = function(nums, val) {
+//   let i = 0;
+//   for (let j = 0; j < nums.length; j++) {
+//     if (nums[j] !== val) {
+//       nums[i] = nums[j];
+//       i++;
+//     }
+//     console.log(nums);
+//   }
+//   return i;
+// };
+
+// ===LeetCodeEasy====RemoveElement=======================================
+
+// ===LeetCodeEasy====romanToInt==========================================
+// var romanToInt = function(s) {
+//   const symbols = {
+//     I: 1,
+//     V: 5,
+//     X: 10,
+//     L: 50,
+//     C: 100,
+//     D: 500,
+//     M: 1000
+//   };
+
+//   let total = 0;
+//   for (let i = 0; i < s.length; i++) {
+//     if (symbols[s[i]] < symbols[s[i + 1]]) {
+//       total -= symbols[s[i]];
+//     } else {
+//       total += symbols[s[i]];
+//     }
+//   }
+//   return total;
+// };
+
+// console.log(romanToInt("MMDLXXIII"));
+// ===LeetCodeEasy====romanToInt==========================================
+
+// ===LeetCodeEasy====lengthOfLastWord====================================
+
+// let string = "a";
+// var lengthOfLastWord = function(s) {
+//   if (s.length === 0) {
+//     return 0;
+//   }
+//   const wordArray = s.split(" ");
+//   for (let i = wordArray.length - 1; i >= 0; i--)
+//     if (wordArray[i] !== "") {
+//       return wordArray[i].length;
+//     }
+//   return 0;
+// };
+
+// console.log(lengthOfLastWord(string));
+// ===LeetCodeEasy====lengthOfLastWord====================================
+
+// ===LeetCodeEasy====reverseInt==========================================
+
+// int = 1534236469;
+
+// var reverse = function(x) {
+//   const str = x.toString();
+//   let array = str.split("");
+//   let left = 0;
+//   let right = array.length - 1;
+//   if (x < 0) {
+//     left++;
+//   }
+//   while (left < right) {
+//     [array[left], array[right]] = [array[right], array[left]];
+//     left++;
+//     right--;
+//   }
+//   console.log(parseInt(array.join("")) < 2147483648);
+
+//   if (
+//     (-2147483648 < parseInt(array.join(""))) &
+//     (parseInt(array.join("")) < 2147483648)
+//   ) {
+//     return parseInt(array.join(""));
+//   }
+//   return 0;
+// };
+
+// console.log(reverse(int));
+
+// ===LeetCodeEasy====reverseInt==========================================
+
+// ===LeetCodeEasy====longestCommonPrefix=================================
+
+// array = ["a"];
+
+// var longestCommonPrefix = function(strs) {
+//   if (strs.length === 0) {
+//     return "";
+//   }
+//   let matching = true;
+//   let counter = 0;
+//   while (matching) {
+//     for (let i = 0; i < strs.length - 1; i++) {
+//       if (strs[i][counter] !== strs[i + 1][counter]) {
+//         matching = false;
+//       }
+//     }
+//     if (counter === strs[0].length) {
+//       return strs[0];
+//     }
+//     counter++;
+//   }
+
+//   return strs[0].slice(0, counter - 1);
+// };
+
+// console.log(longestCommonPrefix(array));
+// ===LeetCodeEasy====longestCommonPrefix=================================
+
+// ===LeetCodeMedium====minSubArray=======================================
+
+// nums = [2, 3, 1, 2, 4, 3, 4, 5, 1, 1, 3, 7, 4, 3];
+
+// var minSubArray = function(nums, s) {
+//   let result = Number.MAX_VALUE;
+//   let left = 0;
+//   let current_sum = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     console.log(i);
+//     current_sum += nums[("i", i)];
+//     while (current_sum >= s) {
+//       result = Math.min(result, i + 1 - left);
+//       current_sum -= nums[left];
+//       left++;
+//     }
+//   }
+//   if (result !== Number.MAX_VALUE) {
+//     return result;
+//   }
+//   return 0;
+// };
+
+// console.log(minSubArray(nums, 7));
+
+// ===LeetCodeMedium====minSubArray=======================================
+
+// ===algoExpertMedium====breadthFirstSearch==============================
+// class Node {
+//   constructor(name) {
+//     this.name = name;
+//     this.children = [];
+//   }
+
+//   addChild(name) {
+//     this.children.push(new Node(name));
+//     return this;
+//   }
+
+//   breadthFirstSearch(array) {
+//     let queue = [this];
+//     while (queue.length > 0) {
+//       let current = queue.shift();
+//       array.push(current.name);
+//       for (const child of current.children) {
+//         console.log("child loop");
+//         queue.push(child);
+//       }
+//     }
+//     return array;
+//   }
+// }
+
+// let parentNode = new Node("a");
+// parentNode
+//   .addChild("b")
+//   .addChild("c")
+//   .addChild("d");
+// parentNode.children[0].addChild("e");
+// parentNode.children[0].addChild("f");
+// parentNode.children[2].addChild("g");
+// parentNode.children[2].addChild("h");
+// parentNode.children[0].children[1].addChild("i");
+// parentNode.children[0].children[1].addChild("j");
+// parentNode.children[2].children[0].addChild("k");
+
+// console.log(parentNode.breadthFirstSearch([]));
+
+// ===algoExpertMedium====breadthFirstSearch==============================
