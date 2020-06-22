@@ -1222,3 +1222,62 @@ function binarySearch(array, target) {
 // console.log(parentNode.breadthFirstSearch([]));
 
 // ===algoExpertMedium====breadthFirstSearch==============================
+
+// ===LeetCodeEasy====stepsToReduceToZero=================================
+
+// var numberOfSteps = function(num) {
+//   let stepCounter = 0;
+//   while (num > 0) {
+//     if (num % 2 === 0) {
+//       num /= 2;
+//       stepCounter++;
+//     } else {
+//       num -= 1;
+//       stepCounter++;
+//     }
+//   }
+//   return stepCounter;
+// };
+
+// console.log(numberOfSteps(123));
+
+// ===LeetCodeEasy====stepsToReduceToZero=================================
+
+// ===algoExpertMedium====threeNumberSum============================
+
+// let sortedArray = [-8, -6, 1, 2, 3, 5, 6, 12];
+// let array = [12, 3, 1, 2, -6, 5, -8, 6];
+
+// function threeNumberSum(array, target) {
+//   let sorted = array.sort(function(a, b) {
+//     return a - b;
+//   });
+//   let answersArray = [];
+//   for (let i = 0; i < sorted.length; i++) {
+//     let left = 0;
+//     let right = sorted.length - 1;
+//     while (left < right) {
+//       if (i === left) {
+//         left++;
+//       }
+//       if (i === right) {
+//         right--;
+//       }
+//       if (target > sorted[left] + sorted[i] + sorted[right]) {
+//         left++;
+//       }
+//       if (target < sorted[left] + sorted[i] + sorted[right]) {
+//         right--;
+//       }
+//       if (target === sorted[left] + sorted[i] + sorted[right]) {
+//         answersArray.push([sorted[left], sorted[i], sorted[right]]);
+//         left++;
+//       }
+//     }
+//   }
+//   return answersArray;
+// }
+
+// console.log(threeNumberSum(array, 0));
+
+// ===algoExpertMedium====threeNumberSum==============================
