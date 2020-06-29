@@ -1437,3 +1437,68 @@ const isPalindrome = (string) => {
 // console.log(stockMarket(array));
 
 // ===LeetCodeEasy====MaxProfit====================================
+
+//=============TwoQueensProblem================================
+
+// const board = [
+//   [0, 7, 0, 0, 0, 0, 0, 0], //00-07
+//   [0, 0, 0, 0, 0, 0, 7, 0], //10-17
+//   [0, 0, 0, 0, 0, 0, 0, 0], //20-27
+//   [0, 0, 0, 7, 0, 0, 0, 0], //30-37
+//   [0, 0, 0, 0, 0, 0, 0, 7], //40-47
+//   [0, 0, 7, 0, 0, 0, 0, 0], //50-57
+//   [7, 0, 0, 0, 0, 0, 0, 0], //60-67
+//   [0, 0, 0, 0, 0, 7, 0, 0], //70-77
+// ];
+
+// const isQueenThreated = (board) => {
+//   const unsafeSpaces = {};
+//   for (let i = 0; i < board.length; i++) {
+//     for (let j = 0; j < board.length; j++) {
+//       if (board[i][j] === 7) {
+//         if (unsafeSpaces[`${i}${j}`]) {
+//           return true;
+//         }
+//         determineUnsafeSpaces(i, j, board, unsafeSpaces);
+//       }
+//     }
+//   }
+//   return false;
+// };
+
+// const determineUnsafeSpaces = (i, j, board, unsafeSpaces) => {
+//   for (let k = j + 1; k < board.length; k++) {
+//     unsafeSpaces[`${i}${k}`] = true;
+//   }
+//   let rightDigit = j + 1;
+//   let difference = 2;
+//   for (let l = i + 1; l < board.length; l++) {
+//     unsafeSpaces[`${l}${j}`] = true;
+//     if (rightDigit < board.length) {
+//       unsafeSpaces[`${l}${rightDigit}`] = true;
+
+//       rightDigit++;
+//     }
+// if (l > i && right - difference >= 0) {
+//   unsafeSpaces[`${l}${right - difference - 1}`] = true;
+//   console.log(`${l}${right - difference}`);
+//   difference += 2;
+// }
+// }
+// };
+
+// console.log(isQueenThreated(board));
+
+// console.log('loops')
+// for (let j = 0; j < board.length; j++) {
+//   if (board[i][j] === 7) {
+//     for (let k = j + 1; k < board.length; k++) {
+//       console.log(board[i][k])
+//       if (board[i][k] === 7) {
+//         return true;
+//       }
+//     }
+//   }
+// }
+
+//=============TwoQueensProblem================================
