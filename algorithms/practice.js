@@ -1502,3 +1502,39 @@ const isPalindrome = (string) => {
 // }
 
 //=============TwoQueensProblem====================================
+
+//     let leftIdx = i - 1;
+//     let rightIdx = i + 1;
+//     let currentPeak = 0;
+//     while (leftIdx !== 0 || rightIdx !== array.length - 1) {
+//       console.log("while loops");
+
+//       if (leftIdx !== 0) {
+//         if (array[leftIdx] <= array[leftIdx + 1]) {
+//           leftHigh = array[leftIdx];
+//           currentPeak += 1;
+//           leftIdx -= 1;
+//         } else {
+//           leftIdx = 0;
+//         }
+//       }
+
+//       if (rightIdx !== array.length - 1) {
+//         if (array[rightIdx] <= array[rightIdx - 1]) {
+//           currentPeak += 1;
+//           rightIdx += 1;
+//         } else {
+//           rightIdx = array.length - 1;
+//         }
+//       }
+//     }
+//     if (currentPeak > longestPeak) {
+//       longestPeak = currentPeak;
+//     }
+//   }
+//   return longestPeak + 1;
+// };
+
+// console.log(longestPeak(array));
+
+// ====algoExpertMedium====longestPeak==============================
