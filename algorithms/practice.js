@@ -403,23 +403,23 @@ const isPalindrome = (string) => {
 
 // const nums = [0, 1, 21, 33, 45, 45, 61, 71, 72, 73];
 
-function binarySearch(array, target) {
-  let start = 0;
-  let end = array.length - 1;
-  let midPoint = Math.floor(array.length / 2);
-  while (start <= end) {
-    if (array[midPoint] === target) {
-      return midPoint;
-    }
-    if (array[midPoint] < target) {
-      start = midPoint += 1;
-    }
-    if (array[midPoint] > target) {
-      end = midPoint -= 1;
-    }
-  }
-  return -1;
-}
+// function binarySearch(array, target) {
+//   let start = 0;
+//   let end = array.length - 1;
+//   let midPoint = Math.floor(array.length / 2);
+//   while (start <= end) {
+//     if (array[midPoint] === target) {
+//       return midPoint;
+//     }
+//     if (array[midPoint] < target) {
+//       start = midPoint += 1;
+//     }
+//     if (array[midPoint] > target) {
+//       end = midPoint -= 1;
+//     }
+//   }
+//   return -1;
+// }
 
 // function binarySearch(array, target) {
 //   let start = 0;
@@ -1414,5 +1414,26 @@ function binarySearch(array, target) {
 
 // console.log(smallestSub(list1, subsequence));
 // console.log(smallestSub(list2, subsequence));
+
+// ===LeetCodeEasy====smallerNumsThanCurrent====================================
+
+// ===LeetCodeEasy====MaxProfit====================================
+
+// array = [1, 2, 1, 4, 5];
+
+// function stockMarket(prices) {
+//   let profit = 0;
+
+//   for (let i = 0; i < prices.length; i++) {
+//     if (prices[i] < prices[i + 1]) {
+//       console.log("if statement");
+//       profit += prices[i + 1] - prices[i];
+//     }
+//   }
+
+//   return profit;
+// }
+
+// console.log(stockMarket(array));
 
 // ===LeetCodeEasy====MaxProfit====================================
