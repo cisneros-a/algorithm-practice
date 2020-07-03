@@ -44,4 +44,25 @@ function birthdayCakeCandles(ar) {
   console.log(largestNumCount);
 }
 
-birthdayCakeCandles([3, 2, 1, 3]);
+// birthdayCakeCandles([3, 2, 1, 3]);
+
+// Time Conversion
+
+function timeConversion(s) {
+  let time;
+  let hour = `${s[0]}${s[1]}`;
+
+  if (s[s.length - 2] === "P") {
+    time = hour === "12" ? "12" : parseInt(hour) + 12;
+  } else {
+    time = hour === "12" ? "00" : hour;
+  }
+
+  for (let i = 2; i < s.length - 2; i++) {
+    time += `${s[i]}`;
+  }
+  return time;
+}
+
+let s = "12:40:22AM";
+console.log(timeConversion(s));
