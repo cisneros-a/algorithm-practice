@@ -1538,3 +1538,107 @@ const isPalindrome = (string) => {
 // console.log(longestPeak(array));
 
 // ====algoExpertMedium====longestPeak==============================
+
+var tribonacci = function (n) {
+  let arr = [1, 1, 2];
+  if (n === 0) return 0;
+  if (n < 4) return arr[n - 1];
+
+  for (let i = 4; i < n; i++) {
+    if (i % 3 === 1) {
+      arr[0] = reduce(arr);
+    }
+    if (i % 3 === 2) {
+      arr[1] = reduce(arr);
+    }
+    if (i % 3 === 0) {
+      arr[2] = reduce(arr);
+    }
+  }
+
+  return reduce(arr);
+};
+
+function reduce(arr) {
+  return arr.reduce((acc, val) => {
+    return acc + val;
+  });
+}
+
+var tribonacci2 = function (n) {
+  let f0 = 0,
+    f1 = 1,
+    f2 = 1;
+
+  if (n < 3) {
+    return [f0, f1, f2][n];
+  }
+
+  let sum = 0;
+
+  for (let i = 3; i <= n; i++) {
+    sum = f0 + f1 + f2;
+    f0 = f1;
+    f1 = f2;
+    f2 = sum;
+  }
+
+  return sum;
+};
+
+console.time("algo2");
+for (let i = 1; i < 1000000; i++) {
+  tribonacci(500);
+}
+console.timeEnd("algo2");
+
+console.time("algo2");
+for (let i = 1; i < 1000000; i++) {
+  tribonacci2();
+}
+console.timeEnd("algo2");
+
+// ===algoExpertMedium====longestPeak==============================
+
+// array = [1, 2, 3, 4, 5, 1];
+
+// let longestPeak = (array) => {
+//   let longestPeak = 1;
+//   for (let i = 0; i < array.length; i++) {
+//     console.log(`${i} loops`);
+
+//     let leftIdx = i - 1;
+//     let rightIdx = i + 1;
+//     let currentPeak = 0;
+//     while (leftIdx !== 0 || rightIdx !== array.length - 1) {
+//       console.log("while loops");
+
+//       if (leftIdx !== 0) {
+//         if (array[leftIdx] <= array[leftIdx + 1]) {
+//           leftHigh = array[leftIdx];
+//           currentPeak += 1;
+//           leftIdx -= 1;
+//         } else {
+//           leftIdx = 0;
+//         }
+//       }
+
+//       if (rightIdx !== array.length - 1) {
+//         if (array[rightIdx] <= array[rightIdx - 1]) {
+//           currentPeak += 1;
+//           rightIdx += 1;
+//         } else {
+//           rightIdx = array.length - 1;
+//         }
+//       }
+//     }
+//     if (currentPeak > longestPeak) {
+//       longestPeak = currentPeak;
+//     }
+//   }
+//   return longestPeak + 1;
+// };
+
+// console.log(longestPeak(array));
+
+// ====algoExpertMedium====longestPeak==============================
