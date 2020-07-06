@@ -1642,3 +1642,16 @@ console.timeEnd("algo2");
 // console.log(longestPeak(array));
 
 // ====algoExpertMedium====longestPeak==============================
+
+// ====interstion of arrays=========================================
+
+// const inputArr = ["1, 3, 4, 7, 15", "11, 2, 41, 115, 21"];
+
+// function findIntersection(arr) {
+//   const [arr1, arr2] = arr.map((arr) => arr.split(","));
+//   return arr1.filter((num) => arr2.includes(num));
+// }
+
+// console.log(findIntersection(inputArr));
+
+// ====interstion of arrays=========================================
