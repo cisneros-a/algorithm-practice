@@ -1539,64 +1539,64 @@ const isPalindrome = (string) => {
 
 // ====algoExpertMedium====longestPeak==============================
 
-var tribonacci = function (n) {
-  let arr = [1, 1, 2];
-  if (n === 0) return 0;
-  if (n < 4) return arr[n - 1];
+// var tribonacci = function (n) {
+//   let arr = [1, 1, 2];
+//   if (n === 0) return 0;
+//   if (n < 4) return arr[n - 1];
 
-  for (let i = 4; i < n; i++) {
-    if (i % 3 === 1) {
-      arr[0] = reduce(arr);
-    }
-    if (i % 3 === 2) {
-      arr[1] = reduce(arr);
-    }
-    if (i % 3 === 0) {
-      arr[2] = reduce(arr);
-    }
-  }
+//   for (let i = 4; i < n; i++) {
+//     if (i % 3 === 1) {
+//       arr[0] = reduce(arr);
+//     }
+//     if (i % 3 === 2) {
+//       arr[1] = reduce(arr);
+//     }
+//     if (i % 3 === 0) {
+//       arr[2] = reduce(arr);
+//     }
+//   }
 
-  return reduce(arr);
-};
+//   return reduce(arr);
+// };
 
-function reduce(arr) {
-  return arr.reduce((acc, val) => {
-    return acc + val;
-  });
-}
+// function reduce(arr) {
+//   return arr.reduce((acc, val) => {
+//     return acc + val;
+//   });
+// }
 
-var tribonacci2 = function (n) {
-  let f0 = 0,
-    f1 = 1,
-    f2 = 1;
+// var tribonacci2 = function (n) {
+//   let f0 = 0,
+//     f1 = 1,
+//     f2 = 1;
 
-  if (n < 3) {
-    return [f0, f1, f2][n];
-  }
+//   if (n < 3) {
+//     return [f0, f1, f2][n];
+//   }
 
-  let sum = 0;
+//   let sum = 0;
 
-  for (let i = 3; i <= n; i++) {
-    sum = f0 + f1 + f2;
-    f0 = f1;
-    f1 = f2;
-    f2 = sum;
-  }
+//   for (let i = 3; i <= n; i++) {
+//     sum = f0 + f1 + f2;
+//     f0 = f1;
+//     f1 = f2;
+//     f2 = sum;
+//   }
 
-  return sum;
-};
+//   return sum;
+// };
 
-console.time("algo2");
-for (let i = 1; i < 1000000; i++) {
-  tribonacci(500);
-}
-console.timeEnd("algo2");
+// console.time("algo2");
+// for (let i = 1; i < 1000000; i++) {
+//   tribonacci(500);
+// }
+// console.timeEnd("algo2");
 
-console.time("algo2");
-for (let i = 1; i < 1000000; i++) {
-  tribonacci2();
-}
-console.timeEnd("algo2");
+// console.time("algo2");
+// for (let i = 1; i < 1000000; i++) {
+//   tribonacci2();
+// }
+// console.timeEnd("algo2");
 
 // ===algoExpertMedium====longestPeak==============================
 
@@ -1642,3 +1642,16 @@ console.timeEnd("algo2");
 // console.log(longestPeak(array));
 
 // ====algoExpertMedium====longestPeak==============================
+
+// ====interstion of arrays=========================================
+
+// const inputArr = ["1, 3, 4, 7, 15", "11, 2, 41, 115, 21"];
+
+// function findIntersection(arr) {
+//   const [arr1, arr2] = arr.map((arr) => arr.split(","));
+//   return arr1.filter((num) => arr2.includes(num));
+// }
+
+// console.log(findIntersection(inputArr));
+
+// ====interstion of arrays=========================================

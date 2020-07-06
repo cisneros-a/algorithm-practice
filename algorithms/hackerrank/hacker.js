@@ -69,27 +69,27 @@
 
 // Migratory Birds
 
-let birds = [1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4];
+// let birds = [1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4];
 
-function migratoryBirds(arr) {
-  let birdsObj = {};
-  let max = 0;
-  let smallest = Number.MAX_SAFE_INTEGER;
-  for (let i = 0; i < arr.length; i++) {
-    if (birdsObj[arr[i]]) {
-      birdsObj[arr[i]] += 1;
-      if (birdsObj[arr[i]] > max) {
-        smallest = arr[i];
-        max = birdsObj[arr[i]];
-      }
-      if (birdsObj[arr[i]] === max) {
-        smallest = arr[i] < smallest ? arr[i] : smallest;
-      }
-    } else {
-      birdsObj[arr[i]] = 1;
-    }
-  }
-  return smallest;
-}
+// function migratoryBirds(arr) {
+//   let birdsObj = {};
+//   let max = 0;
+//   let smallest = Number.MAX_SAFE_INTEGER;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (birdsObj[arr[i]]) {
+//       birdsObj[arr[i]] += 1;
+//       if (birdsObj[arr[i]] > max) {
+//         smallest = arr[i];
+//         max = birdsObj[arr[i]];
+//       }
+//       if (birdsObj[arr[i]] === max) {
+//         smallest = arr[i] < smallest ? arr[i] : smallest;
+//       }
+//     } else {
+//       birdsObj[arr[i]] = 1;
+//     }
+//   }
+//   return smallest;
+// }
 
 // console.log(migratoryBirds(birds));
