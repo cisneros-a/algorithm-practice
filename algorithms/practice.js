@@ -1655,3 +1655,177 @@ const isPalindrome = (string) => {
 // console.log(findIntersection(inputArr));
 
 // ====interstion of arrays=========================================
+
+// const moves = [
+//   [0, 0],
+//   [2, 0],
+//   [1, 1],
+//   [2, 1],
+//   [2, 2],
+// ];
+
+// var tictactoe = function (moves) {
+//   const board = [
+//     ["", "", ""],
+//     ["", "", ""],
+//     ["", "", ""],
+//   ];
+//   let x = [];
+//   let o = [];
+//   for (let i = 0; i < moves.length; i++) {
+//     let symbol = i % 2 ? "O" : "X";
+//     let placement = moves[i][0] * 3 + moves[i][1] + 1;
+//     if (symbol === "X") {
+//       x.push(placement);
+//     } else {
+//       o.push(placement);
+//     }
+//     // board[placement] = symbol;
+//   }
+//   checkForWinner(x,o);
+// };
+
+// var checkForWinner = function (x,o) {
+
+//   const winningCombos = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+//     [1, 4, 7],
+//     [2, 5, 8],
+//     [3, 6, 9],
+//     [1, 5, 9],
+//     [3, 5, 7],
+//   ];
+//   for (let i = 0; i < x.length; i++) {
+//     for ()
+//   }
+
+// };
+
+// tictactoe(moves);
+
+// ["X", [], [], [], "X", [], "O", "O", "X"];
+
+//==========longestPalindrome
+let s = "abccccdd";
+
+var longestPalindrome = function (s) {
+  const letters = {};
+  for (let i = 0; i < s.length; i++) {
+    if (letters[s[i]]) {
+      letters[s[i]] += 1;
+    } else {
+      letters[s[i]] = 1;
+    }
+  }
+  let singleLetter = false;
+  let wordCount = 0;
+
+  for (letter in letters) {
+    if (letters[letter] === 1) {
+      singleLetter = true;
+    } else {
+      if (letters[letter] % 2 === 1) singleLetter = true;
+      let letterCount = Math.floor(letters[letter] / 2);
+      wordCount += letterCount * 2;
+    }
+  }
+  if (singleLetter) wordCount += 1;
+  return wordCount;
+};
+
+var longestPalindrome2 = function (s) {
+  let dict = {};
+  let sArr = s.split("");
+  for (let i = 0; i < sArr.length; i++) {
+    if (dict[sArr[i]] === undefined) {
+      dict[sArr[i]] = 1;
+    } else {
+      dict[sArr[i]] += 1;
+    }
+  }
+  let count = 0;
+  let hasOne = 0;
+  let keys = Object.keys(dict);
+  if (keys.length === 1) {
+    return dict[keys[0]];
+  }
+  for (let i = 0; i < keys.length; i++) {
+    if (dict[keys[i]] % 2 === 1) {
+      hasOne = 1;
+      count += dict[keys[i]] - 1;
+    } else if (dict[keys[i]] % 2 === 0) {
+      count += dict[keys[i]];
+    }
+  }
+  return count + hasOne;
+};
+
+// console.log(longestPalindrome(s));
+
+// console.time("algo1");
+// for (let i = 1; i < 1500000; i++) {
+//   longestPalindrome(s);
+// }
+// console.timeEnd("algo1");
+
+// console.time("algo2");
+// for (let i = 1; i < 1500000; i++) {
+//   longestPalindrome2(s);
+// }
+// console.timeEnd("algo2");
+
+// const A = "";
+// const B = "";
+// var rotateString = function (A, B) {
+//   if (A.length !== B.length) return false;
+//   if (!A) return true;
+//   for (let i = 0; i < A.length; i++) {
+//     if (B === rotatedString(A, i)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// };
+
+// function rotatedString(A, num) {
+//   let copy = A.split("");
+//   let one = reverse(copy, 0, A.length - 1);
+//   let two = reverse(one, num, A.length - 1);
+//   let three = reverse(two, 0, num - 1);
+//   return three.join("");
+// }
+
+// function reverse(string, left, right) {
+//   while (left < right) {
+//     [string[left], string[right]] = [string[right], string[left]];
+//     left++;
+//     right--;
+//   }
+//   return string;
+// }
+
+// console.log(rotateString(A, B));
+
+// var toHex = function (num) {
+//   hexObj = {
+//     "10": "A",
+//     "11": "B",
+//     "12": "C",
+//     "13": "D",
+//     "14": "E",
+//     "15": "F",
+//   };
+//   if (num < 16) {
+//     return returnSingleHex(num);
+//   }
+//   let firstHex = Math.floor(num / 16);
+//   let secondHex = returnSingleHex(num - firstHex * 16);
+//   return `${firstHex}${secondHex}`;
+// };
+
+// function returnSingleHex(num) {
+//   if (num >= 10) return hexObj[num];
+//   return num.toString();
+// }
