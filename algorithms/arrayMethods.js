@@ -28,3 +28,9 @@ nums.join("-"); // "1-2-3-4-5"
 nestedNums = [[1], [2], [3], [4], [5]];
 
 nestedNums.flat(); // [1,2,3,4,5]
+
+// console.log(nestedNums.flat());
+
+const numsThree = [1, 2, 3, 3, 4, 5];
+
+numsThree.indexOf(3); // 2
