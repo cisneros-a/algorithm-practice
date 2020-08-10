@@ -1829,3 +1829,41 @@ var longestPalindrome2 = function (s) {
 //   if (num >= 10) return hexObj[num];
 //   return num.toString();
 // }
+
+//============funWithAnagrams===========================
+
+// Given an array of strings, remove each string that is an anagram of an earlier string
+// then return the remaining array sorted
+
+let arr = ["code", "doce", "framer", "ecod", "frame"];
+
+// returns ["code", "frame", "framer"]
+
+function funWithAnagrams(arr) {
+  let uniqueWords = [arr[0]];
+  for (let i = 1; i < arr.length; i++) {
+    let duplicate = false;
+    for (let j = 0; j < uniqueWords.length; j++) {
+      if (isAnagram(uniqueWords[j], arr[i])) {
+        duplicate = true;
+      }
+    }
+    if (!duplicate) uniqueWords.push(arr[i]);
+  }
+  return uniqueWords.sort();
+}
+
+function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) return false;
+  let s1 = str1.split("").sort();
+  let s2 = str2.split("").sort();
+
+  for (let i = 0; i < s1.length; i++) {
+    if (s1[i] !== s2[i]) {
+      return false;
+    }
+    return true;
+  }
+}
+
+console.log(funWithAnagrams(strs));
