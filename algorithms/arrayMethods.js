@@ -24,3 +24,7 @@ nums.join(); // "1,2,3,4,5"
 nums.join(""); // "12345"
 nums.join(" "); // "1 2 3 4 5"
 nums.join("-"); // "1-2-3-4-5"
+
+nestedNums = [[1], [2], [3], [4], [5]];
+
+nestedNums.flat(); // [1,2,3,4,5]
