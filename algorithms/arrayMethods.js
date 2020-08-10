@@ -38,3 +38,5 @@ numsThree.indexOf(3); // 2
 numsThree.lastIndexOf(3); // 3
 
 numsThree.toString(); // '1,2,3,3,4,5'
+
+console.log(numsThree.forEach((num) => num * 2)); //undefined
