@@ -449,25 +449,20 @@ const isPalindrome = (string) => {
 //Worst Case: O(N^2), also the average case
 // nums = [8, 5, 2, 9, 5, 6, 3];
 
-// function bubbleSort(array) {
+// function bubbleSort(nums) {
 //   let sorted = false;
 //   let counter = 0;
 //   while (!sorted) {
 //     sorted = true;
-//     for (let i = 0; i < array.length - 1 - counter; i++) {
-//       if (array[i] > array[i + 1]) {
-//         console.log("triggered");
+//     for (let i = 0; i < nums.length - counter; i++) {
+//       if (nums[i] > nums[i + 1]) {
 //         sorted = false;
-//         swap(i, i + 1, array);
+//         [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
 //       }
 //     }
-//     counter += 1;
+//     counter++;
 //   }
-//   return array;
-// }
-
-// function swap(i, j, array) {
-//   [array[i], array[j]] = [array[j], array[i]];
+//   return nums;
 // }
 
 // console.log(bubbleSort(nums));
@@ -1708,59 +1703,59 @@ const isPalindrome = (string) => {
 // ["X", [], [], [], "X", [], "O", "O", "X"];
 
 //==========longestPalindrome
-let s = "abccccdd";
+// let s = "abccccdd";
 
-var longestPalindrome = function (s) {
-  const letters = {};
-  for (let i = 0; i < s.length; i++) {
-    if (letters[s[i]]) {
-      letters[s[i]] += 1;
-    } else {
-      letters[s[i]] = 1;
-    }
-  }
-  let singleLetter = false;
-  let wordCount = 0;
+// var longestPalindrome = function (s) {
+//   const letters = {};
+//   for (let i = 0; i < s.length; i++) {
+//     if (letters[s[i]]) {
+//       letters[s[i]] += 1;
+//     } else {
+//       letters[s[i]] = 1;
+//     }
+//   }
+//   let singleLetter = false;
+//   let wordCount = 0;
 
-  for (letter in letters) {
-    if (letters[letter] === 1) {
-      singleLetter = true;
-    } else {
-      if (letters[letter] % 2 === 1) singleLetter = true;
-      let letterCount = Math.floor(letters[letter] / 2);
-      wordCount += letterCount * 2;
-    }
-  }
-  if (singleLetter) wordCount += 1;
-  return wordCount;
-};
+//   for (letter in letters) {
+//     if (letters[letter] === 1) {
+//       singleLetter = true;
+//     } else {
+//       if (letters[letter] % 2 === 1) singleLetter = true;
+//       let letterCount = Math.floor(letters[letter] / 2);
+//       wordCount += letterCount * 2;
+//     }
+//   }
+//   if (singleLetter) wordCount += 1;
+//   return wordCount;
+// };
 
-var longestPalindrome2 = function (s) {
-  let dict = {};
-  let sArr = s.split("");
-  for (let i = 0; i < sArr.length; i++) {
-    if (dict[sArr[i]] === undefined) {
-      dict[sArr[i]] = 1;
-    } else {
-      dict[sArr[i]] += 1;
-    }
-  }
-  let count = 0;
-  let hasOne = 0;
-  let keys = Object.keys(dict);
-  if (keys.length === 1) {
-    return dict[keys[0]];
-  }
-  for (let i = 0; i < keys.length; i++) {
-    if (dict[keys[i]] % 2 === 1) {
-      hasOne = 1;
-      count += dict[keys[i]] - 1;
-    } else if (dict[keys[i]] % 2 === 0) {
-      count += dict[keys[i]];
-    }
-  }
-  return count + hasOne;
-};
+// var longestPalindrome2 = function (s) {
+//   let dict = {};
+//   let sArr = s.split("");
+//   for (let i = 0; i < sArr.length; i++) {
+//     if (dict[sArr[i]] === undefined) {
+//       dict[sArr[i]] = 1;
+//     } else {
+//       dict[sArr[i]] += 1;
+//     }
+//   }
+//   let count = 0;
+//   let hasOne = 0;
+//   let keys = Object.keys(dict);
+//   if (keys.length === 1) {
+//     return dict[keys[0]];
+//   }
+//   for (let i = 0; i < keys.length; i++) {
+//     if (dict[keys[i]] % 2 === 1) {
+//       hasOne = 1;
+//       count += dict[keys[i]] - 1;
+//     } else if (dict[keys[i]] % 2 === 0) {
+//       count += dict[keys[i]];
+//     }
+//   }
+//   return count + hasOne;
+// };
 
 // console.log(longestPalindrome(s));
 
@@ -1835,35 +1830,236 @@ var longestPalindrome2 = function (s) {
 // Given an array of strings, remove each string that is an anagram of an earlier string
 // then return the remaining array sorted
 
-let arr = ["code", "doce", "framer", "ecod", "frame"];
+// let arr = ["code", "doce", "framer", "ecod", "frame"];
 
-// returns ["code", "frame", "framer"]
+// // returns ["code", "frame", "framer"]
 
-function funWithAnagrams(arr) {
-  let uniqueWords = [arr[0]];
-  for (let i = 1; i < arr.length; i++) {
-    let duplicate = false;
-    for (let j = 0; j < uniqueWords.length; j++) {
-      if (isAnagram(uniqueWords[j], arr[i])) {
-        duplicate = true;
+// function funWithAnagrams(arr) {
+//   let uniqueWords = [arr[0]];
+//   for (let i = 1; i < arr.length; i++) {
+//     let duplicate = false;
+//     for (let j = 0; j < uniqueWords.length; j++) {
+//       if (isAnagram(uniqueWords[j], arr[i])) {
+//         duplicate = true;
+//       }
+//     }
+//     if (!duplicate) uniqueWords.push(arr[i]);
+//   }
+//   return uniqueWords.sort();
+// }
+
+// function isAnagram(str1, str2) {
+//   if (str1.length !== str2.length) return false;
+//   let s1 = str1.split("").sort();
+//   let s2 = str2.split("").sort();
+
+//   for (let i = 0; i < s1.length; i++) {
+//     if (s1[i] !== s2[i]) {
+//       return false;
+//     }
+//     return true;
+//   }
+// }
+
+// console.log(funWithAnagrams(strs));
+
+// =============Maximum Subarray===========================
+
+// var maxSubArray = function (nums) {
+//   // if (nums.length === 1) return nums[0];
+
+//   let max = Number.MIN_SAFE_INTEGER;
+
+//   for (let i = 0; i < nums.length; i++) {
+//     let currentTotal = nums[i];
+//     if (currentTotal > max) {
+//       max = currentTotal;
+//     }
+//     for (let j = i + 1; j < nums.length; j++) {
+//       currentTotal += nums[j];
+//       if (currentTotal > max) {
+//         max = currentTotal;
+//       }
+//     }
+//   }
+//   return max;
+// };
+
+// console.log(maxSubArray([1]));
+// =============Maximum Subarray===========================
+
+// class Node {
+//   constructor(value) {
+//     this.value = value;
+//     this.next = null;
+//     this.prev = null;
+//   }
+// }
+
+// class LinkedList {
+//   constructor() {
+//     this.head = null;
+//     this.tail = null;
+//   }
+
+//   push(node) {
+//     if (this.head === null) {
+//       this.head = node;
+//       this.tail = node;
+//     } else {
+//       let temp = this.tail;
+//       this.tail = node;
+//       temp.next = node;
+//       node.prev = temp;
+//     }
+//   }
+
+//   pop() {
+//     console.log(`${this.tail.value} is being removed`);
+//     this.tail = this.tail.prev;
+//     this.tail.next = null;
+//     return "removed";
+//   }
+
+//   peak() {
+//     return this.tail;
+//   }
+
+//   displayValues() {
+//     let current = this.head;
+//     while (current !== null) {
+//       console.log(current.value);
+//       current = current.next;
+//     }
+//   }
+
+//   getMin() {
+//     let current = this.head;
+//     let min = Number.MAX_SAFE_INTEGER;
+//     let minNode = null;
+//     while (current !== null) {
+//       if (current.value < min) {
+//         min = current.value;
+//         minNode = current;
+//       }
+//       current = current.next;
+//     }
+//     return minNode.value;
+//   }
+
+//   removeDuplicates() {
+//     let current = this.head.next;
+//     while (current !== null) {
+//       if (current.value === current.prev.value) {
+//         this.removeNode(current);
+//       }
+//       current = current.next;
+//     }
+//   }
+
+//   removeNode(node) {
+//     if (node.prev) node.prev.next = node.next;
+//     if (node.next) node.next.prev = node.prev;
+//   }
+// }
+
+// const a = new Node(1);
+// const a2 = new Node(1);
+// const b = new Node(2);
+// const b2 = new Node(2);
+// const c = new Node(3);
+// const c2 = new Node(3);
+// const d = new Node(4);
+// const d2 = new Node(4);
+// const e = new Node(5);
+// const e2 = new Node(5);
+// const f = new Node(6);
+// const f2 = new Node(6);
+
+// const list = new LinkedList();
+
+// list.push(a);
+// list.push(a2);
+// list.push(b);
+// list.push(b2);
+// list.push(c);
+// list.push(c2);
+// list.push(d);
+// list.push(d2);
+// list.push(e);
+// list.push(e2);
+// list.push(f);
+// list.push(f2);
+
+// list.displayValues();
+// list.removeDuplicates();
+// list.displayValues();
+
+// ======= Validate Subsequence =====================
+
+// let array = [5, 1, 22, 25, 6, -1, 8, -2, 10];
+// let sequence = [1, 6, -1, -2];
+
+// function validateSubsequence(arr, sequence) {
+//   let arrIdx = 0;
+//   let seqIdx = 0;
+//   while ((arrIdx !== arr.length) & (seqIdx !== sequence.length)) {
+//     if (sequence[seqIdx] === array[arrIdx]) seqIdx++;
+//     arrIdx++;
+//   }
+//   return seqIdx === sequence.length;
+// }
+
+// console.log(validateSubsequence(array, sequence));
+
+// ======= Validate Subsequence =====================
+
+// depthFirstSearch
+
+class Node {
+  constructor(name) {
+    this.name = name;
+    this.children = [];
+  }
+
+  addChild(node) {
+    this.children.push(node);
+    return this.children;
+  }
+
+  depthFirstSearch(arr) {
+    arr.push(this.name);
+    for (const child of this.children) {
+      child.depthFirstSearch(arr);
+    }
+    return arr;
+  }
+
+  breadthFirstSearch(array) {
+    let queue = [this];
+    while (queue.length > 0) {
+      const current = queue.shift();
+      array.push(current.name);
+      for (const child of current.children) {
+        queue.push(child);
       }
     }
-    if (!duplicate) uniqueWords.push(arr[i]);
-  }
-  return uniqueWords.sort();
-}
-
-function isAnagram(str1, str2) {
-  if (str1.length !== str2.length) return false;
-  let s1 = str1.split("").sort();
-  let s2 = str2.split("").sort();
-
-  for (let i = 0; i < s1.length; i++) {
-    if (s1[i] !== s2[i]) {
-      return false;
-    }
-    return true;
+    return array;
   }
 }
 
-console.log(funWithAnagrams(strs));
+let A = new Node("A");
+let B = new Node("B");
+let C = new Node("C");
+let D = new Node("D");
+let E = new Node("E");
+let F = new Node("F");
+
+A.addChild(B);
+B.addChild(D);
+B.addChild(E);
+A.addChild(C);
+C.addChild(F);
+
+console.log(A.depthFirstSearch([]));
+console.log(A.breadthFirstSearch([]));

@@ -221,3 +221,69 @@
 // console.log(twoSum2(arr, 49));
 // }
 // console.timeEnd('algo2')
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  addHead(node) {
+    if (this.length === 0) {
+      this.tail = node;
+      this.head = node;
+    } else {
+      let temp = this.head;
+      this.head = node;
+      node.next = temp;
+    }
+    this.length += 1;
+    return node;
+  }
+
+  addNode(node) {
+    if (this.length == 0) {
+      this.tail = node;
+      this.head = node;
+    } else {
+      let temp = this.tail;
+      this.tail = node;
+      temp.next = node;
+    }
+    this.length += 1;
+    return node;
+  }
+
+  showList() {
+    let current = this.head;
+    while (current) {
+      console.log(current.value);
+      current = current.next;
+    }
+    return this.length;
+  }
+}
+
+const a = new Node(1);
+const b = new Node(2);
+const c = new Node(3);
+const d = new Node(4);
+
+const list1 = new LinkedList();
+
+list1.addHead(a);
+list1.addHead(b);
+list1.addNode(c);
+list1.addNode(d);
+
+// console.log(a);
+// console.log(b);
+list1.showList();
