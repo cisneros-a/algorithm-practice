@@ -2048,11 +2048,42 @@ const isPalindrome = (string) => {
 
 // ===========LeetCode climbingStairs================
 
-var climbStairs = function (n) {
-  if (n <= 1) return 1;
-  let paths = [1, 1];
-  for (let i = 2; i <= n; i++) {
-    paths[i] = paths[i - 1] + paths[i - 2];
+// var climbStairs = function (n) {
+//   if (n <= 1) return 1;
+//   let paths = [1, 1];
+//   for (let i = 2; i <= n; i++) {
+//     paths[i] = paths[i - 1] + paths[i - 2];
+//   }
+//   return paths[paths.length - 1];
+// };
+
+// ========= CodeSignal groupingDishes===============
+
+const dishes = [
+  ["Salad", "Tomato", "Cucumber", "Salad", "Sauce"],
+  ["Pizza", "Tomato", "Sausage", "Sauce", "Dough"],
+  ["Quesadilla", "Chicken", "Cheese", "Sauce"],
+  ["Sandwich", "Salad", "Bread", "Tomato", "Cheese"],
+];
+
+function groupingDishes(dishes) {
+  let obj = {};
+  let arr = [];
+  for (const i in dishes) {
+    for (let j = 1; j < dishes[i].length; j++) {
+      if (obj[dishes[i][j]]) {
+        obj[dishes[i][j]].push(dishes[i][0]);
+      } else {
+        obj[dishes[i][j]] = [dishes[i][0]];
+      }
+    }
   }
-  return paths[paths.length - 1];
-};
+  for (const ingredient in obj) {
+    if (obj[ingredient].length > 1) {
+      arr.push([ingredient, ...obj[ingredient].sort()]);
+    }
+  }
+  return arr.sort();
+}
+
+groupingDishes(dishes);
