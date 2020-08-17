@@ -2002,48 +2002,57 @@ const isPalindrome = (string) => {
 
 // ======= Validate Subsequence =====================
 
-// depthFirstSearch
+// ==========LCA binary tree=========================
+
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.right = null;
+//     this.left = null;
+//   }
+// }
+
+// let a = new Node(8);
+// let b = new Node(3);
+// let c = new Node(1);
+// let d = new Node(6);
+// let e = new Node(4);
+// let f = new Node(7);
+// let g = new Node(10);
+// let h = new Node(14);
+// let i = new Node(13);
+
+// a.left = b;
+// b.left = c;
+// b.right = d;
+// d.left = e;
+// d.right = f;
+
+// a.right = g;
+// g.right = h;
+// h.left = i;
+
+// function findLCA(node, num1, num2) {
+//   if ((num1 < node.val) & (num2 < node.val)) {
+//     return findLCA(node.left, num1, num2);
+//   } else if ((num1 > node.val) & (num2 > node.val)) {
+//     return findLCA(node.right, num1, num2);
+//   } else {
+//     return node.val;
+//   }
+// }
+
+// console.log(findLCA(a, 4, 7));
 
 // ==========LCA binary tree=========================
 
-class Node {
-  constructor(val) {
-    this.val = val;
-    this.right = null;
-    this.left = null;
+// ===========LeetCode climbingStairs================
+
+var climbStairs = function (n) {
+  if (n <= 1) return 1;
+  let paths = [1, 1];
+  for (let i = 2; i <= n; i++) {
+    paths[i] = paths[i - 1] + paths[i - 2];
   }
-}
-
-let a = new Node(8);
-let b = new Node(3);
-let c = new Node(1);
-let d = new Node(6);
-let e = new Node(4);
-let f = new Node(7);
-let g = new Node(10);
-let h = new Node(14);
-let i = new Node(13);
-
-a.left = b;
-b.left = c;
-b.right = d;
-d.left = e;
-d.right = f;
-
-a.right = g;
-g.right = h;
-h.left = i;
-
-function findLCA(node, num1, num2) {
-  if ((num1 < node.val) & (num2 < node.val)) {
-    return findLCA(node.left, num1, num2);
-  } else if ((num1 > node.val) & (num2 > node.val)) {
-    return findLCA(node.right, num1, num2);
-  } else {
-    return node.val;
-  }
-}
-
-console.log(findLCA(a, 4, 7));
-
-// ==========LCA binary tree=========================
+  return paths[paths.length - 1];
+};
