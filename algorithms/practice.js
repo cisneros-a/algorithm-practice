@@ -1969,12 +1969,6 @@ const isPalindrome = (string) => {
 // const b2 = new Node(2);
 // const c = new Node(3);
 // const c2 = new Node(3);
-// const d = new Node(4);
-// const d2 = new Node(4);
-// const e = new Node(5);
-// const e2 = new Node(5);
-// const f = new Node(6);
-// const f2 = new Node(6);
 
 // const list = new LinkedList();
 
@@ -1984,12 +1978,6 @@ const isPalindrome = (string) => {
 // list.push(b2);
 // list.push(c);
 // list.push(c2);
-// list.push(d);
-// list.push(d2);
-// list.push(e);
-// list.push(e2);
-// list.push(f);
-// list.push(f2);
 
 // list.displayValues();
 // list.removeDuplicates();
@@ -2016,50 +2004,64 @@ const isPalindrome = (string) => {
 
 // depthFirstSearch
 
+// ======== Code signal removeKFromList=====================
+
 class Node {
-  constructor(name) {
-    this.name = name;
-    this.children = [];
-  }
-
-  addChild(node) {
-    this.children.push(node);
-    return this.children;
-  }
-
-  depthFirstSearch(arr) {
-    arr.push(this.name);
-    for (const child of this.children) {
-      child.depthFirstSearch(arr);
-    }
-    return arr;
-  }
-
-  breadthFirstSearch(array) {
-    let queue = [this];
-    while (queue.length > 0) {
-      const current = queue.shift();
-      array.push(current.name);
-      for (const child of current.children) {
-        queue.push(child);
-      }
-    }
-    return array;
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
 }
 
-let A = new Node("A");
-let B = new Node("B");
-let C = new Node("C");
-let D = new Node("D");
-let E = new Node("E");
-let F = new Node("F");
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
 
-A.addChild(B);
-B.addChild(D);
-B.addChild(E);
-A.addChild(C);
-C.addChild(F);
+  push(node) {
+    if (this.head === null) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      let temp = this.tail;
+      this.tail = node;
+      temp.next = node;
+    }
+  }
 
-console.log(A.depthFirstSearch([]));
-console.log(A.breadthFirstSearch([]));
+  displayValues() {
+    let current = this.head;
+    while (current !== null) {
+      console.log(current.value);
+      current = current.next;
+    }
+    return "displayed values";
+  }
+}
+
+const a = new Node(3);
+const a2 = new Node(1);
+const b = new Node(2);
+const b2 = new Node(3);
+const c = new Node(4);
+const c2 = new Node(5);
+
+const list = new LinkedList();
+
+list.push(a);
+list.push(a2);
+list.push(b);
+list.push(b2);
+list.push(c);
+list.push(c2);
+
+function removeKFromList(l, k) {
+  let current = l.head;
+  while (current) {
+    if (current.value === k) {
+    }
+  }
+}
+
+removeKFromList(list, 5);
