@@ -2004,64 +2004,46 @@ const isPalindrome = (string) => {
 
 // depthFirstSearch
 
-// ======== Code signal removeKFromList=====================
+// ==========LCA binary tree=========================
 
 class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
+  constructor(val) {
+    this.val = val;
+    this.right = null;
+    this.left = null;
   }
 }
 
-class LinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-  }
+let a = new Node(8);
+let b = new Node(3);
+let c = new Node(1);
+let d = new Node(6);
+let e = new Node(4);
+let f = new Node(7);
+let g = new Node(10);
+let h = new Node(14);
+let i = new Node(13);
 
-  push(node) {
-    if (this.head === null) {
-      this.head = node;
-      this.tail = node;
-    } else {
-      let temp = this.tail;
-      this.tail = node;
-      temp.next = node;
-    }
-  }
+a.left = b;
+b.left = c;
+b.right = d;
+d.left = e;
+d.right = f;
 
-  displayValues() {
-    let current = this.head;
-    while (current !== null) {
-      console.log(current.value);
-      current = current.next;
-    }
-    return "displayed values";
-  }
-}
+a.right = g;
+g.right = h;
+h.left = i;
 
-const a = new Node(3);
-const a2 = new Node(1);
-const b = new Node(2);
-const b2 = new Node(3);
-const c = new Node(4);
-const c2 = new Node(5);
-
-const list = new LinkedList();
-
-list.push(a);
-list.push(a2);
-list.push(b);
-list.push(b2);
-list.push(c);
-list.push(c2);
-
-function removeKFromList(l, k) {
-  let current = l.head;
-  while (current) {
-    if (current.value === k) {
-    }
+function findLCA(node, num1, num2) {
+  if ((num1 < node.val) & (num2 < node.val)) {
+    return findLCA(node.left, num1, num2);
+  } else if ((num1 > node.val) & (num2 > node.val)) {
+    return findLCA(node.right, num1, num2);
+  } else {
+    return node.val;
   }
 }
 
-removeKFromList(list, 5);
+console.log(findLCA(a, 4, 7));
+
+// ==========LCA binary tree=========================
