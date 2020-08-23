@@ -2059,31 +2059,31 @@ const isPalindrome = (string) => {
 
 // ========= CodeSignal groupingDishes===============
 
-const dishes = [
-  ["Salad", "Tomato", "Cucumber", "Salad", "Sauce"],
-  ["Pizza", "Tomato", "Sausage", "Sauce", "Dough"],
-  ["Quesadilla", "Chicken", "Cheese", "Sauce"],
-  ["Sandwich", "Salad", "Bread", "Tomato", "Cheese"],
-];
+// const dishes = [
+//   ["Salad", "Tomato", "Cucumber", "Salad", "Sauce"],
+//   ["Pizza", "Tomato", "Sausage", "Sauce", "Dough"],
+//   ["Quesadilla", "Chicken", "Cheese", "Sauce"],
+//   ["Sandwich", "Salad", "Bread", "Tomato", "Cheese"],
+// ];
 
-function groupingDishes(dishes) {
-  let obj = {};
-  let arr = [];
-  for (const i in dishes) {
-    for (let j = 1; j < dishes[i].length; j++) {
-      if (obj[dishes[i][j]]) {
-        obj[dishes[i][j]].push(dishes[i][0]);
-      } else {
-        obj[dishes[i][j]] = [dishes[i][0]];
-      }
-    }
-  }
-  for (const ingredient in obj) {
-    if (obj[ingredient].length > 1) {
-      arr.push([ingredient, ...obj[ingredient].sort()]);
-    }
-  }
-  return arr.sort();
-}
+// function groupingDishes(dishes) {
+//   let obj = {};
+//   let arr = [];
+//   for (const i in dishes) {
+//     for (let j = 1; j < dishes[i].length; j++) {
+//       if (obj[dishes[i][j]]) {
+//         obj[dishes[i][j]].push(dishes[i][0]);
+//       } else {
+//         obj[dishes[i][j]] = [dishes[i][0]];
+//       }
+//     }
+//   }
+//   for (const ingredient in obj) {
+//     if (obj[ingredient].length > 1) {
+//       arr.push([ingredient, ...obj[ingredient].sort()]);
+//     }
+//   }
+//   return arr.sort();
+// }
 
-groupingDishes(dishes);
+// groupingDishes(dishes);
