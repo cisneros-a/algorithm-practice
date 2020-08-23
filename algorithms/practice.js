@@ -2127,3 +2127,17 @@ const isPalindrome = (string) => {
 //   }
 //   return "_"
 // }
+
+// ========= CodeSignal firstDuplicate==========================
+
+// function firstDuplicate(a) {
+//   let obj = {}
+//   for (let i = 0; i < a.length; i++) {
+//       if (obj[a[i]]){
+//           return a[i]
+//       } else {
+//           obj[a[i]] = 1;
+//       }
+//   }
+//   return -1
+// }
