@@ -2255,3 +2255,20 @@
 // }
 
 // console.log(ordered_shopping(products, shopping_list));
+
+//===========isSubsequence=========================
+
+// var isSubsequence = function (s, t) {
+//   let sIndex = 0;
+//   let tIndex = 0;
+//   while (sIndex < s.length) {
+//     if (tIndex === t.length) {
+//       return false;
+//     }
+//     if (s[sIndex] === t[tIndex]) {
+//       sIndex++;
+//     }
+//     tIndex++;
+//   }
+//   return true;
+// };
