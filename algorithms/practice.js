@@ -2272,3 +2272,25 @@
 //   }
 //   return true;
 // };
+
+//=========reverseStringII==================
+
+// var reverseStr = function(s, k) {
+//   let strArr = s.split('');
+//    function reverse(left, right){
+//        let t;
+//        while(left < right){
+//            t = strArr[left];
+//            strArr[left] = strArr[right];
+//            strArr[right] = t;
+//            left++;
+//            right--;
+//        }
+
+//    }
+
+//    for(let i = 0; i < s.length; i += 2 * k){
+//        reverse(i , i + k - 1);
+//    }
+//    return strArr.join('');
+// };
