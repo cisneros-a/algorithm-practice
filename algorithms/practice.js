@@ -84,18 +84,18 @@
 
 // const string = 'racecar'
 
-const isPalindrome = (string) => {
-  let left = 0;
-  let right = s.length - 1;
-  while (left < right) {
-    if (s[left] !== s[right]) {
-      return false;
-    }
-    left++;
-    right--;
-  }
-  return true;
-};
+// const isPalindrome = (string) => {
+//   let left = 0;
+//   let right = s.length - 1;
+//   while (left < right) {
+//     if (s[left] !== s[right]) {
+//       return false;
+//     }
+//     left++;
+//     right--;
+//   }
+//   return true;
+// };
 
 // console.time('isPalindrome')
 // for (let i = 1; i < 1000000; i++) {
@@ -2141,3 +2141,117 @@ const isPalindrome = (string) => {
 //   }
 //   return -1
 // }
+
+// const numbers = [1, 2, 3, 4];
+// function isZigzag(numbers) {
+//   let arr = [];
+//   for (let i = 1; i < numbers.length - 1; i++) {
+//     let a = numbers[i - 1];
+//     let b = numbers[i];
+//     let c = numbers[i + 1];
+
+//     if (a < b && b > c) {
+//       arr.push(1);
+//     } else if (a > b && b < c) {
+//       arr.push(1);
+//     } else {
+//       arr.push(0);
+//     }
+//   }
+//   return arr;
+// }
+
+// console.log(isZigzag(numbers));
+
+// let s = "aaacodedoc";
+
+// function palindromeCutting(s) {
+//   let copy = s;
+
+//   let i = 0;
+
+//   while (i < s.length) {
+//     console.log("while");
+//     for (let j = i + 1; j < s.length; j++) {
+//       let palindrome = false;
+//       let temp = i;
+
+//       if (isPalindrome(s.slice(i, j))) {
+//         if (j > temp) {
+//           palindrome = true;
+//           i = j;
+//           temp = j;
+//         }
+//       } else {
+//         i++;
+//       }
+//       if (palindrome) {
+//         i = temp;
+//         newStr = [...copy];
+//         let newCopy = newStr.splice(i, j);
+//         copy = newCopy.join("");
+//       } else {
+//         i++;
+//       }
+//     }
+//   }
+//   return copy;
+// }
+
+// const isPalindrome = (string) => {
+//   let left = 0;
+//   let right = string.length - 1;
+//   while (left < right) {
+//     if (string[left] !== string[right]) {
+//       return false;
+//     }
+//     left++;
+//     right--;
+//   }
+//   return true;
+// };
+
+// console.log(palindromeCutting(s));
+// // console.log(isPalindrome("racear"));
+
+//===================orderedShopping=============
+
+// const products = [
+//   ["Cheese", "Dairy"],
+//   ["Carrots", "Produce"],
+//   ["Potatoes", "Produce"],
+//   ["Canned Corn", "Pantry"],
+//   ["Romaine", "Produce"],
+//   ["Yogurt", "Dairy"],
+//   ["Flour", "Pantry"],
+//   ["Iceberg", "Produce"],
+//   ["Coffee", "Pantry"],
+//   ["Pasta", "Pantry"],
+//   ["Milk", "Dairy"],
+//   ["Grapes", "Produce"],
+//   ["Pasta Sauce", "Pantry"],
+// ];
+
+// const shopping_list = ["Milk", "Flour", "Yogurt", "Pasta Sauce"];
+
+// function ordered_shopping(products, shopping_list) {
+//   let totalAisleVisits = 1;
+//   let productsObj = {};
+//   for (let i = 0; i < products.length; i++) {
+//     productsObj[products[i][0]] = products[i][1];
+//   }
+
+//   let aisles = [productsObj[shopping_list[0]]];
+
+//   for (let i = 1; i < shopping_list.length; i++) {
+//     if (!aisles.includes(productsObj[shopping_list[i]])) {
+//       aisles.push(productsObj[shopping_list[i]]);
+//     }
+//     if (productsObj[shopping_list[i]] !== productsObj[shopping_list[i - 1]]) {
+//       totalAisleVisits += 1;
+//     }
+//   }
+//   return totalAisleVisits - aisles.length;
+// }
+
+// console.log(ordered_shopping(products, shopping_list));
